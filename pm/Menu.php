@@ -25,7 +25,7 @@ else
     <br>
 </td>
 </tr>
-<tr><td><? echo C_ACTIVE_USER; ?><b><?php  echo $_SESSION["UserName"] ?></b></td></tr>
+<tr><td><?php echo C_ACTIVE_USER; ?><b><?php  echo $_SESSION["UserName"] ?></b></td></tr>
 </table>
 <table style='cursor:pointer' border=0 cellpadding=0 cellspacing=0 width=185>
 <tr>
@@ -34,7 +34,7 @@ else
 	<thead>
         <tr>
 		<th width='85%' align='center'>
-		<b><? echo C_MAIN_MENU ?></b>
+		<b><?php echo C_MAIN_MENU ?></b>
 		</th>
         </tr>
 	</thead>
@@ -44,16 +44,16 @@ else
 </table>
 <table border=0 cellpadding=0 cellspacing=0 width='185' class="navbar_sub" <?php if(UI_LANGUAGE=="FA") echo "dir=rtl"; ?> height="15">
 <tr>
-	<td width='83%' height='18'><a href='#' onclick='javascript: parent.document.getElementById("MainContent").src="HomePage.php"'><? echo C_FIRST_PAGE ?></a></td>
+	<td width='83%' height='18'><a href='#' onclick='javascript: parent.document.getElementById("MainContent").src="HomePage.php"'><?php echo C_FIRST_PAGE ?></a></td>
 </tr>
 <tr>
-	<td width='83%' height='18'><a href='#' onclick='javascript: parent.document.getElementById("MainContent").src="ChangePassword.php"'><? echo C_CHANGE_PASSWORD ?></a></td>
+	<td width='83%' height='18'><a href='#' onclick='javascript: parent.document.getElementById("MainContent").src="ChangePassword.php"'><?php echo C_CHANGE_PASSWORD ?></a></td>
 </tr>
 <tr>
-	<td width='83%' height='18'><a href='#' onclick='javascript: parent.document.getElementById("MainContent").src="MyActions.php"'><? echo C_MY_ACTIONS ?></a></td>
+	<td width='83%' height='18'><a href='#' onclick='javascript: parent.document.getElementById("MainContent").src="MyActions.php"'><?php echo C_MY_ACTIONS ?></a></td>
 </tr>
 <tr>
-	<td width='83%' height='18'><a href='javascript: parent.document.location="SignOut.php?logout=1"'><? echo C_EXIT ?></a></td>
+	<td width='83%' height='18'><a href='javascript: parent.document.location="SignOut.php?logout=1"'><?php echo C_EXIT ?></a></td>
 </tr>
 </table>
 <?php 
@@ -71,7 +71,7 @@ else
 	<table width=100% border=0 cellpadding=0 cellspacing=0 class="navbar_main" height="25">	
 	<tr>
 		<td  width='25'>&nbsp;</td>
-		<td <? if(UI_LANGUAGE=="FA") echo "align=right"; ?>
+		<td <?php if(UI_LANGUAGE=="FA") echo "align=right"; ?>
 		<a href='#' onclick='javascript: ExpandOrColapse("tr_<?php echo $grec["GroupID"] ?>")'>
 		<b><?php if(UI_LANGUAGE=="FA") echo $grec["GroupName"]; else echo $grec["EGroupName"]; ?></b>
 		</a>
@@ -112,7 +112,7 @@ else
 <script>
 	function ColapseAll()
 	{
-	  <?
+	  <?php
 	    $gres = $mysql->Execute("select * from SystemFacilityGroups where GroupID in (select GroupID from SystemFacilities JOIN UserFacilities using (FacilityID) where UserID='".$_SESSION["UserID"]."') order by OrderNo");
 	    while($grec = $gres->fetch())
 	    { 
