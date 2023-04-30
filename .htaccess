@@ -3,3 +3,4 @@ php_value post_max_size      "20M"
 php_value max_execution_time "1200"
 php_value error_reporting "3"
 php_value include_path ".:/var/www/adodb:/var/www/shares:/var/www/sharedClasses"
+php_value short_open_tag 1
