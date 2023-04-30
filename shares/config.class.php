@@ -9,7 +9,7 @@ class config{
     'host'   => 'localhost',
     'driver' => 'mysql',
                 
-    "lab_user" => 'root',
+    "lab_user" => 'user1',
     "lab_pass" => '',
     "lab_db"   => 'projectmanagement',
 
