@@ -10,7 +10,7 @@ class config{
     'driver' => 'mysql',
                 
     "lab_user" => 'user1',
-    "lab_pass" => '',
+    "lab_pass" => 'user1',
     "lab_db"   => 'projectmanagement',
 
     "dataanalysis_user" => 'root',
