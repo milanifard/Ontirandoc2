@@ -128,7 +128,7 @@ PropertyTitle, OntologyPropertyLabels.label as PropertyLabel,
 PermittedValue
 from projectmanagement.TermReferenceMapping 
 JOIN projectmanagement.terms using (TermID)
-JOIN projectmanagement.TermOntologyElementMapping using (TermID)
+LEFT JOIN projectmanagement.TermOntologyElementMapping using (TermID)
 LEFT JOIN projectmanagement.OntologyClasses on (OntologyClasses.OntologyClassID=TermOntologyElementMapping.OntologyEntityID)
 LEFT JOIN projectmanagement.OntologyClassLabels on (OntologyClasses.OntologyClassID=OntologyClassLabels.OntologyClassID)
 LEFT JOIN projectmanagement.OntologyProperties on (OntologyProperties.OntologyPropertyID=TermOntologyElementMapping.OntologyEntityID)
