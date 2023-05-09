@@ -54,7 +54,7 @@ if(isset($_REQUEST["UpdateID"]))
 	$content = htmlentities($obj->content, ENT_QUOTES, 'UTF-8');
 }	
 ?>
-<div class="main container-fluid" style="background-color: #454d55">
+<div class="main container-fluid" style="">
     <div class="row">
 <form method="post" id="f1" name="f1" style="width: 100%">
 <?/*
