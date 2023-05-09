@@ -104,9 +104,7 @@ if(!isset($_REQUEST["UpdateID"]))
                 </span>
             </div>
 
-	<textarea class="form-control" aria-label="content" name="Item_content" id="Item_content" cols="80" rows="7">
-        <? echo $content ?>
-    </textarea>
+	<textarea class="form-control" aria-label="content" name="Item_content" id="Item_content" cols="80" rows="7"><? echo $content ?></textarea>
 
         <a class="align-self-center" style="padding: 10px; color: #7abaff" href='#' onclick="javascript: FixString();">
             <?echo C_REFINE ?>
@@ -169,8 +167,8 @@ if($SomeItemsRemoved)
 	<input type="hidden" id="Item_TermReferenceID" name="Item_TermReferenceID" value="<? echo htmlentities($_REQUEST["TermReferenceID"], ENT_QUOTES, 'UTF-8'); ?>">
 <? if(isset($_REQUEST["PageNumber"]))
 	echo "<input type=\"hidden\" name=\"PageNumber\" value=".$_REQUEST["PageNumber"].">"; ?>
-<br><table class="tabel table-dark table-bordered table-hover" width="90%" align="center" border="1" cellpadding="10">
-<tr class="text-center table-primary font-weight-bold" style="color: #1b1e21 ; padding: 20px;">
+<br><table class="tabel table-bordered table-hover" width="90%" align="center" border="1" cellpadding="10">
+<tr class="text-center table-primary font-weight-bold" style="padding: 20px;">
 	<td colspan="6">
         <?echo C_REF_CONTENT?>
 
