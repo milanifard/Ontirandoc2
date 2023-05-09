@@ -196,7 +196,7 @@ class manage_TermReferenceMapping
 		$mysql->Prepare($query);
 		$res = $mysql->ExecuteStatement(array($RemoveRecordID));
 		$rec = $res->fetch();
-		
+		var_dump($rec);
 		$query = "insert into projectmanagement.TermsReferHistory (TermID, TermTitle, TermReferenceID, TermReferenceTitle, PersonID, ATS, ActionType, ParagraphNo, PageNum)
 			  values (?, ?, ?, ?, '".$_SESSION["PersonID"]."', now(), 'REMOVE', ?, ?)";
 		$mysql->Prepare($query);
