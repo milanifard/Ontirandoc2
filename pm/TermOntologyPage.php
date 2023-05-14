@@ -142,7 +142,7 @@ function ShowRelatedTerms($TermID)
       $OntologyElement = "-";
       if($rec2["EntityTitle"]!="")
            $OntologyElement = $rec2["EntityTitle"];
-      echo "<a target=_blank href='ManageTermReferenceMapping.php?UpdateID=".$rec2["TermReferenceMappingID"]."&TermReferenceID=".$rec2["TermReferenceID"]."'>";
+      echo "<a rel='opener' target=_blank href='ManageTermReferenceMapping.php?UpdateID=".$rec2["TermReferenceMappingID"]."&TermReferenceID=".$rec2["TermReferenceID"]."'>";
       if($rec2["TermID"]==$TermID)
 	echo "<font color=green><b>";
       echo $rec2["TermTitle"];
@@ -167,21 +167,21 @@ function ShowHypoTermsByStruct($TermID, $TermTitle)
   echo "<b>- پیشوندی: </b>";
   while($rec = $res->fetch())
   {
-    echo "<a target=_blank href='TermOntologyPage.php?TermID=".$rec["TermID"]."'>".$rec["TermTitle"]."</a> - ";
+    echo "<a rel='opener' target=_blank href='TermOntologyPage.php?TermID=".$rec["TermID"]."'>".$rec["TermTitle"]."</a> - ";
   }
   //echo "<br>";
   $res = $mysql->Execute("select TermID, TermTitle from projectmanagement.terms where TermID<>'".$TermID."' and TermTitle like '%".$TermTitle."' and TermTitle not like '".$TermTitle."%'  and TermID in (select TermID from projectmanagement.TermReferenceMapping )");
   echo "<br><b>- پسوندی: </b>";
   while($rec = $res->fetch())
   {
-    echo "<a target=_blank href='TermOntologyPage.php?TermID=".$rec["TermID"]."'>".$rec["TermTitle"]."</a> - ";
+    echo "<a rel='opener' target=_blank href='TermOntologyPage.php?TermID=".$rec["TermID"]."'>".$rec["TermTitle"]."</a> - ";
   }
   //echo "<br>";
   $res = $mysql->Execute("select TermID, TermTitle from projectmanagement.terms where TermID<>'".$TermID."' and TermTitle like '%".$TermTitle."%' and (TermTitle not like '".$TermTitle."%' and TermTitle not like '%".$TermTitle."')  and TermID in (select TermID from projectmanagement.TermReferenceMapping )");
   echo "<br><b>- محتوی: </b>";
   while($rec = $res->fetch())
   {
-    echo "<a target=_blank href='TermOntologyPage.php?TermID=".$rec["TermID"]."'>".$rec["TermTitle"]."</a> - ";
+    echo "<a rel='opener' target=_blank href='TermOntologyPage.php?TermID=".$rec["TermID"]."'>".$rec["TermTitle"]."</a> - ";
   }
 
 }
@@ -195,7 +195,7 @@ function ShowHyperTermsByStruct($TermID, $TermTitle)
   while($rec = $res->fetch())
   {
     if($TermTitle!="" && $rec["TermTitle"]!="" && strpos($TermTitle, $rec["TermTitle"])>-1)
-      echo "<a target=_blank href='TermOntologyPage.php?TermID=".$rec["TermID"]."'>".$rec["TermTitle"]."</a> - ";
+      echo "<a rel='opener' target=_blank href='TermOntologyPage.php?TermID=".$rec["TermID"]."'>".$rec["TermTitle"]."</a> - ";
   }
   echo "<br>";
 }
@@ -274,7 +274,7 @@ function ShowHypernymTerms($HyperSynSetIDs, $TermTitle)
   $i = 0;
   while($rec = $res->fetch())
   {
-    echo "<a target=_blank href='TermOntologyPage.php?TermID=".$rec["TermID"]."'>".$rec["TermTitle"]."</a> - ";
+    echo "<a rel='opener' target=_blank href='TermOntologyPage.php?TermID=".$rec["TermID"]."'>".$rec["TermTitle"]."</a> - ";
   }
 }
 
@@ -289,7 +289,7 @@ function ShowHyponymTerms($HypoSynSetIDs, $TermTitle)
   $i = 0;
   while($rec = $res->fetch())
   {
-    echo "<a target=_blank href='TermOntologyPage.php?TermID=".$rec["TermID"]."'>".$rec["TermTitle"]."</a> - ";
+    echo "<a rel='opener' target=_blank href='TermOntologyPage.php?TermID=".$rec["TermID"]."'>".$rec["TermTitle"]."</a> - ";
   }
 }
 
@@ -304,7 +304,7 @@ function ShowSameSynSetTerms($SynSetIDs, $TermTitle)
   $i = 0;
   while($rec = $res->fetch())
   {
-    echo "<a target=_blank href='TermOntologyPage.php?TermID=".$rec["TermID"]."'>".$rec["TermTitle"]."</a> - ";
+    echo "<a rel='opener' target=_blank href='TermOntologyPage.php?TermID=".$rec["TermID"]."'>".$rec["TermTitle"]."</a> - ";
   }
 }
 
@@ -324,11 +324,11 @@ function ShowValidRelations($ClassID, $OntologyID)
   while($rec = $res->fetch())
   {
     echo "رابطه: ";
-    echo "<a target=_blank href='ManageOntologyClasses.php?UpdateID=".$rec["DomainClassID"]."&OntologyID=".$OntologyID."'> ";
+    echo "<a rel='opener' target=_blank href='ManageOntologyClasses.php?UpdateID=".$rec["DomainClassID"]."&OntologyID=".$OntologyID."'> ";
     echo $rec["DomainClassLabel"];
     echo "</a> &nbsp;";
     echo " <b><a href=# onclick=\"window.open('ManageOntologyProperties.php?UpdateID=".$rec["OntologyPropertyID"]."&OntologyID=".$OntologyID."');\" >".$rec["PropertyLabel"]."</a></b> &nbsp;";    
-    echo " <a target=_blank href='ManageOntologyClasses.php?UpdateID=".$rec["RangeClassID"]."&OntologyID=".$OntologyID."'>";
+    echo " <a rel='opener' target=_blank href='ManageOntologyClasses.php?UpdateID=".$rec["RangeClassID"]."&OntologyID=".$OntologyID."'>";
     echo $rec["RangeClassLabel"];
     echo "</a>";
     echo "<br>";
@@ -541,7 +541,7 @@ echo "<b>";
       }
       if($_REQUEST["ObjectName"]=="DataProp" || $_REQUEST["ObjectName"]=="ObjectProp") 
       {
-	echo "<a target=_blank href='ManageOntologyProperties.php?UpdateID=".$_REQUEST["CurValue"]."&OntologyID=".$TargetOntologyID."'>ویرایش خصوصیت</a><br>";
+	echo "<a rel='opener' target=_blank href='ManageOntologyProperties.php?UpdateID=".$_REQUEST["CurValue"]."&OntologyID=".$TargetOntologyID."'>ویرایش خصوصیت</a><br>";
       }
       if($_REQUEST["ObjectName"]=="DataProp" || $_REQUEST["ObjectName"]=="ObjectProp") 
       {
@@ -556,7 +556,7 @@ echo "<b>";
 	    $rec = manage_OntologyClasses::GetClassIDAndLabel($obj->OntologyID, $DomainList[$i]);
 	    if($DomainList[$i]!="")
 	    {
-	      echo "<a href='ManageOntologyClasses.php?UpdateID=".$rec["OntologyClassID"]."&OntologyID=".$obj->OntologyID."' target=_blank>";
+	      echo "<a href='ManageOntologyClasses.php?UpdateID=".$rec["OntologyClassID"]."&OntologyID=".$obj->OntologyID."' target=_blank rel='opener'>";
 	      echo $rec["label"]." (".$DomainList[$i].") ";
 	      echo "</a>";
 	    }
@@ -571,7 +571,7 @@ echo "<b>";
 	    $rec = manage_OntologyClasses::GetClassIDAndLabel($obj->OntologyID, $RangeList[$i]);
 	    if($RangeList[$i]!="")
 	    {
-	      echo "<a href='ManageOntologyClasses.php?UpdateID=".$rec["OntologyClassID"]."&OntologyID=".$obj->OntologyID."' target=_blank>";
+	      echo "<a href='ManageOntologyClasses.php?UpdateID=".$rec["OntologyClassID"]."&OntologyID=".$obj->OntologyID."' target=_blank rel='opener'>";
 	      echo $rec["label"]." (".$RangeList[$i].") ";
 	      echo "</a>";
 	    }
@@ -816,9 +816,9 @@ echo "<select id='OntologyPropertyPermittedValueID' name='OntologyPropertyPermit
 //echo "<span id='PermittedValueSpan' name='PermittedValueSpan'></span>";
 //$tres = $mysql->Execute("select * from projectmanagement.OntologyPropertyPermittedValues where OntologyPropertyID=");
 echo "<span id='EditRangeLink' name='EditRangeLink' style='display: none'>&nbsp; <a href='#' onclick='javascript: GoEditRangePage();'>ویرایش مقادیر</a> &nbsp;&nbsp;</span>";
-echo "<span id='NewObjPropLink' name='NewObjPropLink' style='display: none'><a href='ManageOntologyProperties.php?FromTermOnto=1&OntologyID=".$TargetOntologyID."' target=_blank>ایجاد خصوصیت جدید</a></span>";
-echo "<span id='NewDataPropLink' name='NewDataPropLink' style='display: none'><a href='ManageOntologyProperties.php?DataProp=1&FromTermOnto=1&OntologyID=".$TargetOntologyID."' target=_blank>ایجاد خصوصیت جدید</a></span>";
-echo "<span id='NewClassLink' name='NewClassLink' style='display: none'><a href='ManageOntologyClasses.php?FromTermOnto=1&OntologyID=".$TargetOntologyID."' target=_blank>ایجاد کلاس جدید</a></span>";
+echo "<span id='NewObjPropLink' name='NewObjPropLink' style='display: none'><a href='ManageOntologyProperties.php?FromTermOnto=1&OntologyID=".$TargetOntologyID."' target=_blank rel='opener'>ایجاد خصوصیت جدید</a></span>";
+echo "<span id='NewDataPropLink' name='NewDataPropLink' style='display: none'><a href='ManageOntologyProperties.php?DataProp=1&FromTermOnto=1&OntologyID=".$TargetOntologyID."' target=_blank rel='opener'>ایجاد خصوصیت جدید</a></span>";
+echo "<span id='NewClassLink' name='NewClassLink' style='display: none'><a href='ManageOntologyClasses.php?FromTermOnto=1&OntologyID=".$TargetOntologyID."' target=_blank rel='opener'>ایجاد کلاس جدید</a></span>";
 
 echo "</td>";
 echo "</tr>";
