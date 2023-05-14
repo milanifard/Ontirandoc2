@@ -54,6 +54,7 @@ function Calculate($mysql, $TermRefrenceID)
   
   // TermsCoOccure
   $TermsCount = count($terms);
+  echo "تعداد واژگان: ".$TermsCount."<br>";
   //$TermsCount = 10;
   for($i=0; $i<$TermsCount; $i++)
   {
