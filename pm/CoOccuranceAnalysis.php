@@ -33,7 +33,7 @@ function Calculate($mysql, $TermRefrenceID)
     $i++;
   }
   $mysql->Prepare("select TermID, TermReferenceID, PageNum, ParagraphNo from projectmanagement.TermReferenceMapping where TermReferenceID=?");
-  $res = $mysql->ExecuteStatement(array());
+  $res = $mysql->ExecuteStatement(array($TermRefrenceID));
   $i = 0;
   while($rec = $res->fetch())
   {
