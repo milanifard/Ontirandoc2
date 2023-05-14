@@ -32,7 +32,7 @@ function ShowClassListLabels($ClassListString, $OntologyID, $DomainOrRange, $Not
     {
     	$sw = IsInRestriction($DomainOrRange, $rec["OntologyClassID"], $_REQUEST["UpdateID"]);
     	if(!$sw && $NotifyNotUsed) echo "<font color=red>";
-      echo $rec["label"]." (<a href='ManageOntologyClasses.php?UpdateID=".$rec["OntologyClassID"]."&OntologyID=".$OntologyID."&OnlyEditForm=1' target=_blank>".$ClassList[$i]."</a>)<br>";
+      echo $rec["label"]." (<a href='ManageOntologyClasses.php?UpdateID=".$rec["OntologyClassID"]."&OntologyID=".$OntologyID."&OnlyEditForm=1' target=_blank rel='opener'>".$ClassList[$i]."</a>)<br>";
       	if(!$sw && $NotifyNotUsed) echo "</font>";
     }
     else
@@ -368,7 +368,7 @@ else if(isset($_REQUEST["DataProp"]))
 							<td width="1%" nowrap></td>
 							<td nowrap>
 							<textarea name="Item_domain" id="Item_domain" rows="8" cols="100" dir="ltr" ><? echo $domain; ?></textarea>
-							<a target="_blank" href='ShowOntologyClassTree.php?InputName=Item_domain&OntologyID=<? echo $_REQUEST["OntologyID"] ?>'><? echo C_SELECT ?></a>
+							<a rel="opener" target="_blank" href='ShowOntologyClassTree.php?InputName=Item_domain&OntologyID=<? echo $_REQUEST["OntologyID"] ?>'><? echo C_SELECT ?></a>
 							</td>
 						</tr>
 
@@ -392,14 +392,14 @@ else if(isset($_REQUEST["DataProp"]))
 							<td width="1%" nowrap></td>
 							<td nowrap>
 								<textarea name="Item_range" id="Item_range" rows="8" cols="100" dir=ltr ><? echo $range; ?></textarea>
-								<a target="_blank" href='ShowOntologyClassTree.php?InputName=Item_range&OntologyID=<? echo $_REQUEST["OntologyID"] ?>'><? echo C_SELECT ?></a>
+								<a rel="opener" target="_blank" href='ShowOntologyClassTree.php?InputName=Item_range&OntologyID=<? echo $_REQUEST["OntologyID"] ?>'><? echo C_SELECT ?></a>
 							</td>
 						</tr>
 						<tr>
 							<td width="1%" nowrap><? echo C_REVERSE ?></td>
 							<td nowrap>
 								<input type="text" dir=ltr name="Item_inverseOf" id="Item_inverseOf" maxlength="245" size="40" >
-								<a target="_blank" href='ShowOntologyClassTree.php?InputName=Item_inverseOf&OntologyID=<? echo $_REQUEST["OntologyID"] ?>'><? echo C_SELECT ?></a>
+								<a rel="opener" target="_blank" href='ShowOntologyClassTree.php?InputName=Item_inverseOf&OntologyID=<? echo $_REQUEST["OntologyID"] ?>'><? echo C_SELECT ?></a>
 							</td>
 						</tr>
 						<tr>
@@ -456,7 +456,7 @@ else if(isset($_REQUEST["DataProp"]))
 									  while($rec = $res->fetch())
 									  {
 										echo "<tr><td>".$rec["OntologyTitle"]."</td>";
-										echo "<td><a target=_blank href='ManageOntologyProperties.php?UpdateID=".$rec["EntityID"]."&OntologyID=".$rec["OntologyID"]."'>".$rec["PropertyTitle"]."</a>";
+										echo "<td><a rel='opener' target=_blank href='ManageOntologyProperties.php?UpdateID=".$rec["EntityID"]."&OntologyID=".$rec["OntologyID"]."'>".$rec["PropertyTitle"]."</a>";
 										echo "</td></tr>";
 									  }
 									?>
@@ -549,7 +549,7 @@ else if(isset($_REQUEST["DataProp"]))
 					echo "<input type=\"checkbox\" name=\"ch_".$res[$k]->OntologyPropertyID."\">";
 					echo "</td>";
 					echo "<td>".($k+1)."</td>";
-					echo "	<td><a target=_blank href=\"ManageOntologyProperties.php?UpdateID=".$res[$k]->OntologyPropertyID."&OntologyID=".$_REQUEST["OntologyID"]."&DoNotShowList=1\"><i class='fas fa-edit' title='".C_EDIT."'></i></a></td>";
+					echo "	<td><a rel='opener' target=_blank href=\"ManageOntologyProperties.php?UpdateID=".$res[$k]->OntologyPropertyID."&OntologyID=".$_REQUEST["OntologyID"]."&DoNotShowList=1\"><i class='fas fa-edit' title='".C_EDIT."'></i></a></td>";
 					echo "	<td dir=ltr>";
 					if($res[$k]->IsFunctional_Desc=="بلی")
 					  echo "<i class='fas fa-calendar-times' title='".C_PROPERTY_IS_FUNCTIONAL."'></i>";
@@ -593,7 +593,7 @@ else if(isset($_REQUEST["DataProp"]))
 					}
 					
 					echo "<input type=text name='label_".$res[$k]->OntologyPropertyID."' id='label_".$res[$k]->OntologyPropertyID."' value='".$SuggestedLabel."' required>";
-					echo "<br><a  target=\"_blank\" href='ManageOntologyPropertyLabels.php?OntologyPropertyID=".$res[$k]->OntologyPropertyID ."'>[".C_EDIT."]</a></td>";
+					echo "<br><a rel=\"opener\" target=\"_blank\" href='ManageOntologyPropertyLabels.php?OntologyPropertyID=".$res[$k]->OntologyPropertyID ."'>[".C_EDIT."]</a></td>";
 					echo "</tr>";
 				}
 				?>
