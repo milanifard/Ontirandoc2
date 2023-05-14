@@ -31,7 +31,7 @@ if(isset($_REQUEST["Save"]))
 				, $Item_RelatedPersonCanBeOther
 				, $_REQUEST["Item_RelatedToPerson"]
 				);
-		echo "<script>window.opener.document.location='ManageFileTypes.php'; window.close();</script>";
+		echo "<script>parent.window.opener.document.location='ManageFileTypes.php'; window.close();</script>";
 		die();
 				
 	}	
@@ -47,7 +47,7 @@ if(isset($_REQUEST["Save"]))
 				, $Item_RelatedPersonCanBeOther
 				, $_REQUEST["Item_RelatedToPerson"]
 				);
-		echo "<script>window.opener.document.location='ManageFileTypes.php'; window.close();</script>";
+		echo "<script>parent.window.opener.document.location='ManageFileTypes.php'; window.close();</script>";
 		die();
 				
 	}	

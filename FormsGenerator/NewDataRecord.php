@@ -28,7 +28,7 @@ HTMLBegin();
 		if($_REQUEST["ActionType"]=="REMOVE")
 		{
 			$CurForm->RemoveData($RelatedRecordID, $_SESSION["PersonID"]);
-			echo "<script>window.opener.document.location.reload();</script>";
+			echo "<script>parent.window.opener.document.location.reload();</script>";
 			echo "<script>window.close();</script>";
 		}
 		if($_REQUEST["ActionType"]=="SEND")
@@ -42,7 +42,7 @@ HTMLBegin();
 			else
 			{
 				$CurForm->UpdateData($RelatedRecordID, -1, $_SESSION["PersonID"]);
-				echo "<script>window.opener.document.location.reload();</script>";
+				echo "<script>parent.window.opener.document.location.reload();</script>";
 				echo "<script>window.close();</script>";
 			}
 		}

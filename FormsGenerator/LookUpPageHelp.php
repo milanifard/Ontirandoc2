@@ -12,7 +12,7 @@ HTMLBegin();
         function SetPerson(PersonID, PersonName)
         {
             document.<\? echo $_REQUEST["FormName"]; >.<\? echo $_REQUEST["InputName"]; >.value=PersonID;
-            window.opener.document.getElementById(<\? echo $_REQUEST["SpanName"]; >).innerHTML=PersonName;
+            parent.window.opener.document.getElementById(<\? echo $_REQUEST["SpanName"]; >).innerHTML=PersonName;
             window.close();
         }
 		</pre>

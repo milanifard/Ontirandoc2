@@ -36,7 +36,7 @@ if(isset($_REQUEST["Save"]))
 				);
 	}	
 	echo "<p align=center><font color=green>اطلاعات ذخیره شد</font></p>";
-	echo "<script>window.opener.document.location='ManageFileTypeUserForms.php?id=".$_REQUEST["FileTypeUserPermissionID"]."'</script>";
+	echo "<script>parent.window.opener.document.location='ManageFileTypeUserForms.php?id=".$_REQUEST["FileTypeUserPermissionID"]."'</script>";
 }
 $LoadDataJavascriptCode = '';
 if(isset($_REQUEST["UpdateID"])) 

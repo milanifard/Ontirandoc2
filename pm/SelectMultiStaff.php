@@ -14,16 +14,16 @@
 	  {
 	    if(isset($_REQUEST["ch_".$rec["PersonID"]]))
 	    {
-	      echo "window.opener.document.f1.".$_REQUEST["InputName"].".value = ";
+	      echo "parent.window.opener.document.f1.".$_REQUEST["InputName"].".value = ";
 	      if($i>0)
-		echo "window.opener.document.f1.".$_REQUEST["InputName"].".value+','+'".$rec["PersonID"]."';\r\n";
+		echo "parent.window.opener.document.f1.".$_REQUEST["InputName"].".value+','+'".$rec["PersonID"]."';\r\n";
 	      else
 		echo "'".$rec["PersonID"]."';\r\n";
 	      
 	      
-	      echo "window.opener.document.getElementById('".$_REQUEST["SpanName"]."').innerHTML = ";
+	      echo "parent.window.opener.document.getElementById('".$_REQUEST["SpanName"]."').innerHTML = ";
 	      if($i>0)
-		echo "window.opener.document.getElementById('".$_REQUEST["SpanName"]."').innerHTML+','+'".$rec["pfname"]." ".$rec["plname"]."';\r\n";
+		echo "parent.window.opener.document.getElementById('".$_REQUEST["SpanName"]."').innerHTML+','+'".$rec["pfname"]." ".$rec["plname"]."';\r\n";
 	      else
 		echo "'".$rec["pfname"]." ".$rec["plname"]."';\r\n";
 		
@@ -171,25 +171,25 @@
 <script>
 	function SelectPerson(PersonID, PersonName, FName, LName)
 	{
-		window.opener.document.<?php echo $FormName ?>.<?php echo $_REQUEST["InputName"] ?>.value=PersonID;
-		window.opener.document.getElementById('<?php echo $_REQUEST["SpanName"] ?>').innerHTML=PersonName;
+		parent.window.opener.document.<?php echo $FormName ?>.<?php echo $_REQUEST["InputName"] ?>.value=PersonID;
+		parent.window.opener.document.getElementById('<?php echo $_REQUEST["SpanName"] ?>').innerHTML=PersonName;
 		<?php if(isset($_REQUEST["FInput"])) { ?>
-		window.opener.document.getElementById('<?php echo $_REQUEST["FInput"] ?>').value=FName;
+		parent.window.opener.document.getElementById('<?php echo $_REQUEST["FInput"] ?>').value=FName;
 		<?php } ?>
 		<?php if(isset($_REQUEST["LInput"])) { ?>
-		window.opener.document.getElementById('<?php echo $_REQUEST["LInput"] ?>').value=LName;
+		parent.window.opener.document.getElementById('<?php echo $_REQUEST["LInput"] ?>').value=LName;
 		<?php } ?>
 		window.close();
 	}
 	function ClearLastSelected()
 	{
-		window.opener.document.<?php echo $FormName ?>.<?php echo $_REQUEST["InputName"] ?>.value='0';
-		window.opener.document.getElementById('<?php echo $_REQUEST["SpanName"] ?>').innerHTML='';
+		parent.window.opener.document.<?php echo $FormName ?>.<?php echo $_REQUEST["InputName"] ?>.value='0';
+		parent.window.opener.document.getElementById('<?php echo $_REQUEST["SpanName"] ?>').innerHTML='';
 		<?php if(isset($_REQUEST["FInput"])) { ?>
-		window.opener.document.getElementById('<?php echo $_REQUEST["FInput"] ?>').value='';
+		parent.window.opener.document.getElementById('<?php echo $_REQUEST["FInput"] ?>').value='';
 		<?php } ?>
 		<?php if(isset($_REQUEST["LInput"])) { ?>
-		window.opener.document.getElementById('<?php echo $_REQUEST["LInput"] ?>').value='';
+		parent.window.opener.document.getElementById('<?php echo $_REQUEST["LInput"] ?>').value='';
 		<?php } ?>
 		window.close();
 	}

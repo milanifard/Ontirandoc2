@@ -54,8 +54,8 @@ for($k=0; $k<count($res); $k++)
 <script>
 function SelectRow(SessionPreCommandID, RowNumber)
 {
-	window.opener.document.f1.Item_SessionPreCommandID.value=SessionPreCommandID;
-	window.opener.document.getElementById('Span_SessionPreCommandRow').innerHTML=RowNumber;
+	parent.window.opener.document.f1.Item_SessionPreCommandID.value=SessionPreCommandID;
+	parent.window.opener.document.getElementById('Span_SessionPreCommandRow').innerHTML=RowNumber;
 	window.close();
 }
 

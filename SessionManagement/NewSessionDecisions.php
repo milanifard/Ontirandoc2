@@ -115,7 +115,7 @@ if(isset($_REQUEST["Save"]))
 					, $Item_SessionPreCommandID
 					, $Item_SessionControl
 					);
-			echo "<script>window.opener.document.location='ManageSessionDecisions.php?UniversitySessionID=".$_REQUEST["UniversitySessionID"]."'; window.close();</script>";
+			echo "<script>parent.window.opener.document.location='ManageSessionDecisions.php?UniversitySessionID=".$_REQUEST["UniversitySessionID"]."'; window.close();</script>";
 		}	
 		else 
 		{	
@@ -135,7 +135,7 @@ if(isset($_REQUEST["Save"]))
 			
 			$obj = new be_SessionDecisions();
 			$obj->LoadDataFromDatabase($_REQUEST["UpdateID"]);
-			echo "<script>window.opener.document.location='ManageSessionDecisions.php?UniversitySessionID=".$obj->UniversitySessionID."'; window.close();</script>";
+			echo "<script>parent.window.opener.document.location='ManageSessionDecisions.php?UniversitySessionID=".$obj->UniversitySessionID."'; window.close();</script>";
 			die();
 		}	
 		echo SharedClass::CreateMessageBox("اطلاعات ذخیره شد");

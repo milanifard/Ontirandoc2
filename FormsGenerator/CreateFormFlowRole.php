@@ -50,9 +50,9 @@ if(isset($_REQUEST["Save"]))
 		$mysql->Execute($query);
 		//$mysql->Execute("update mis.WizardReports set ReadyForExecute='NO' where WizardReportID='".$_REQUEST["WizardReportID"]."'");
 		//$mysql->audit("اضافه کردن فیلتر ردیف به گزارش ویزاردی کد ".$_REQUEST["WizardReportID"]);
-		//echo "<script>window.opener.document.location='WizardReport_RowsFilter.php?WizardReportID=".$_REQUEST["WizardReportID"]."'; window.close();</script>";
+		//echo "<script>parent.window.opener.document.location='WizardReport_RowsFilter.php?WizardReportID=".$_REQUEST["WizardReportID"]."'; window.close();</script>";
 	}
-	echo "<script>document.getElementById('MessageSpan').innerHTML='<font color='green'>اطلاعات ذخیره شد</font>'; window.opener.document.location='ManageFormFlowStepRelationDetails.php?FormFlowStepRelationID=".$_REQUEST["FormFlowStepRelationID"]."';</script>";
+	echo "<script>document.getElementById('MessageSpan').innerHTML='<font color='green'>اطلاعات ذخیره شد</font>'; parent.window.opener.document.location='ManageFormFlowStepRelationDetails.php?FormFlowStepRelationID=".$_REQUEST["FormFlowStepRelationID"]."';</script>";
 	echo "<script>setTimeout(\"document.getElementById('MessageSpan').innerHTML='';\", 1500);</script>";
 }
 

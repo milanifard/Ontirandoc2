@@ -79,7 +79,7 @@ echo "</td></tr></table>";
   <? if(isset($_REQUEST["ReturnID"])) { ?>
   function SelectItem(ClassID)
   {
-    var obj = window.opener.document.getElementById('<? echo $_REQUEST["InputName"] ?>');
+    var obj = parent.window.opener.document.getElementById('<? echo $_REQUEST["InputName"] ?>');
     if(obj==null)
       return;
     obj.value = ClassID;
@@ -88,7 +88,7 @@ echo "</td></tr></table>";
   <? } else { ?>
   function SelectItem(ClassTitle)
   {
-    var obj = window.opener.document.getElementById('<? echo $_REQUEST["InputName"] ?>');
+    var obj = parent.window.opener.document.getElementById('<? echo $_REQUEST["InputName"] ?>');
     if(obj==null)
       return;
     if(obj.value!='')

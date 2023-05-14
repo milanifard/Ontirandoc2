@@ -19,13 +19,13 @@ if (isset($_REQUEST["Save"])) {
         manage_ResearchProject::Add($Item_title
             , $Item_ProjectType
         );
-        echo "<script>window.opener.document.location.reload(); window.close();</script>";
+        echo "<script>parent.window.opener.document.location.reload(); window.close();</script>";
     } else {
         manage_ResearchProject::Update($_REQUEST["UpdateID"]
             , $Item_title
             , $Item_ProjectType
         );
-        echo "<script>window.opener.document.location.reload(); window.close();</script>";
+        echo "<script>parent.window.opener.document.location.reload(); window.close();</script>";
         die();
     }
     echo SharedClass::CreateMessageBox(C_SAVED_INFO);

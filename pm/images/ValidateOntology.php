@@ -677,7 +677,7 @@ else
 
   function SelectItem(ClassID)
   {
-    var obj = window.opener.document.getElementById('<? echo $_REQUEST["InputName"] ?>');
+    var obj = parent.window.opener.document.getElementById('<? echo $_REQUEST["InputName"] ?>');
     if(obj==null)
       return;
     obj.value = ClassID;

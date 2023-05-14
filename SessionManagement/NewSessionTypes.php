@@ -29,7 +29,7 @@ if(isset($_REQUEST["Save"]))
 				, $Item_SessionTypeStartTime
 				, $Item_SessionTypeDurationTime
 				);
-		echo "<script>window.opener.document.location.reload(); window.close();</script>";
+		echo "<script>parent.window.opener.document.location.reload(); window.close();</script>";
 	}	
 	else 
 	{	
@@ -39,7 +39,7 @@ if(isset($_REQUEST["Save"]))
 				, $Item_SessionTypeStartTime
 				, $Item_SessionTypeDurationTime
 				);
-		echo "<script>window.opener.document.location.reload(); window.close();</script>";
+		echo "<script>parent.window.opener.document.location.reload(); window.close();</script>";
 		die();
 	}	
 	echo SharedClass::CreateMessageBox("اطلاعات ذخیره شد");

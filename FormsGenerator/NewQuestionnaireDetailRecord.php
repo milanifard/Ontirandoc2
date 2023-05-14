@@ -43,7 +43,7 @@ $mysql = pdodb::getInstance();
 						  values 
 						  ('".$_REQUEST["MasterRecordID"]."','".$_REQUEST["MasterFormsStructID"]."', '".$CurID."', '".$CurForm->FormsStructID."', '".$_SESSION["PersonID"]."', now(), '".$_SESSION["PersonID"]."', now())";   
 				$mysql->Execute($query);
-				echo "<script>window.opener.document.location.reload(); window.close();</script>";
+				echo "<script>parent.window.opener.document.location.reload(); window.close();</script>";
 				die();
 			}
 			else
@@ -55,7 +55,7 @@ $mysql = pdodb::getInstance();
 				$query = "update formsgenerator.DetailFormRecords set LastUpdatedPersonID='".$_SESSION["PersonID"]."' ,LastUpdatedTime=now() where 
 							MasterRecordID='".$_REQUEST["MasterRecordID"]."' and MasterFormsStructID='".$_REQUEST["MasterFormsStructID"]."' and DetailRecordID='".$DetailRecordID."' and DetailFormsStructID='".$CurForm->FormsStructID."'";   
 				$mysql->Execute($query);
-				echo "<script>window.opener.document.location.reload(); window.close();</script>";
+				echo "<script>parent.window.opener.document.location.reload(); window.close();</script>";
 				die();
 			}
 			echo "<script>document.getElementById('MessageSpan').innerHTML='<font color=green>اطلاعات ذخیره و به مرحله مورد نظر ارسال شد</font>';</script>";
@@ -65,7 +65,7 @@ $mysql = pdodb::getInstance();
 		{
 			// بهتر است قبل از حذف یکبار دیگر دسترسی چک شود
 			$CurForm->RemoveData($DetailRecordID);
-			echo "<script>window.opener.document.location.reload(); window.close();</script>";
+			echo "<script>parent.window.opener.document.location.reload(); window.close();</script>";
 			die();
 		}
 	}

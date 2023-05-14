@@ -286,7 +286,7 @@ if(isset($_REQUEST["Save"]) && $_REQUEST["Save"]=="1")
 
         if (<?php echo ($AnyChangeSeen) ? "true" : "false"; ?>) {
             try {
-                window.opener.document.location.reload();
+                parent.window.opener.document.location.reload();
             }
             catch (err) {
             }

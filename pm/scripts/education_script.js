@@ -353,7 +353,7 @@ function ins()
 	
 function select_lesson_close()
 {
-	window.opener.document.form1.submit();
+	parent.window.opener.document.form1.submit();
         window.close(); 
 }
 ///////////////////////////////////////////////////////////////
@@ -461,10 +461,10 @@ function select_location(i)
 ///////////////////////////////////////////////////////
 function close_select_location(i,l,c)
 {
-	window.opener.document.getElementById('location_id'+i).value=l;	
-	window.opener.document.getElementById('class_id'+i).value=c;
-        window.opener.document.form1.confirm.value=1;
-	window.opener.document.form1.submit();
+	parent.window.opener.document.getElementById('location_id'+i).value=l;	
+	parent.window.opener.document.getElementById('class_id'+i).value=c;
+        parent.window.opener.document.form1.confirm.value=1;
+	parent.window.opener.document.form1.submit();
 	window.close();
 }
 /////////////////////////////////////////////////

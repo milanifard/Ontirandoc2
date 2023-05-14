@@ -55,7 +55,7 @@ if(isset($_REQUEST["Save"]))
 				, $Item_ViewPermission
 				, $Item_TemporarySendPermission
 				);
-		echo "<script>window.opener.document.location='ManageFileTypeUsers.php?FileTypeID=".$FileTypeID."'; window.close();</script>";
+		echo "<script>parent.window.opener.document.location='ManageFileTypeUsers.php?FileTypeID=".$FileTypeID."'; window.close();</script>";
 		die();
 	}	
 	else 
@@ -71,7 +71,7 @@ if(isset($_REQUEST["Save"]))
 				, $Item_ViewPermission
 				, $Item_TemporarySendPermission
 				);
-		echo "<script>window.opener.document.location='ManageFileTypeUsers.php?FileTypeID=".$FileTypeID."'; window.close();</script>";
+		echo "<script>parent.window.opener.document.location='ManageFileTypeUsers.php?FileTypeID=".$FileTypeID."'; window.close();</script>";
 		die();
 	}	
 	echo "<p align=center><font color=green>اطلاعات ذخیره شد</font></p>";

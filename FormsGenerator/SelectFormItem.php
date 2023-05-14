@@ -41,7 +41,7 @@ $mysql = dbclass::getInstance();
 <script>
 	function SelectField(FieldName)
 	{
-		window.opener.document.f1.Item_RelatedField.value=FieldName;
+		parent.window.opener.document.f1.Item_RelatedField.value=FieldName;
 		window.close();
 	}
 </script>

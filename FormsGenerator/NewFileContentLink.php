@@ -65,7 +65,7 @@ if(isset($_REQUEST["FileContentID"]))
 		}
 ?>
 	<script>
-		window.opener.document.location='ManageFileContent.php?UpdateID=<?php echo $_REQUEST["FileID"] ?>&ContentType=<?php echo $_REQUEST["ContentType"] ?>';
+		parent.window.opener.document.location='ManageFileContent.php?UpdateID=<?php echo $_REQUEST["FileID"] ?>&ContentType=<?php echo $_REQUEST["ContentType"] ?>';
 		window.close();	
 	</script>
 <?php 

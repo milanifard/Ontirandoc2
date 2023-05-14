@@ -60,7 +60,7 @@ if(isset($_REQUEST["Save"]))
 				, $Achievable
 				, $pc
 				);
-		echo "<script>window.opener.document.location.reload(); window.close();</script>";
+		echo "<script>parent.window.opener.document.location.reload(); window.close();</script>";
 	}	
 	else 
 	{	
@@ -77,7 +77,7 @@ if(isset($_REQUEST["Save"]))
 				, $Achievable
 				, $pc
 				);
-		echo "<script>window.opener.document.location.reload(); window.close();</script>";
+		echo "<script>parent.window.opener.document.location.reload(); window.close();</script>";
 	}	
 	echo SharedClass::CreateMessageBox("اطلاعات ذخیره شد");
 }

@@ -144,7 +144,7 @@ if(isset($_REQUEST["Save"]))
 
 	echo SharedClass::CreateMessageBox("اطلاعات ذخیره شد.");
 	
-	echo "<script>window.opener.document.location.reload(); window.close();</script>";
+	echo "<script>parent.window.opener.document.location.reload(); window.close();</script>";
 	die();
 }
 $LoadDataJavascriptCode = '';

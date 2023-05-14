@@ -57,7 +57,7 @@ $mysql = pdodb::getInstance();
 <script>
 	function Select(DefaultKey)
 	{
-		window.opener.document.f1.Item_DefaultValue.value=DefaultKey;
+		parent.window.opener.document.f1.Item_DefaultValue.value=DefaultKey;
 		window.close();
 	}
 </script>

@@ -339,15 +339,15 @@ else
 <script>
 function SelectTask(ProjectTaskID, TaskTitle)
 {
-	window.opener.document.<?php echo $FormName ?>.<?php echo $_REQUEST["InputName"] ?>.value=ProjectTaskID;
-	window.opener.document.getElementById('<?php echo $_REQUEST["SpanName"] ?>').innerHTML=TaskTitle;
+	parent.window.opener.document.<?php echo $FormName ?>.<?php echo $_REQUEST["InputName"] ?>.value=ProjectTaskID;
+	parent.window.opener.document.getElementById('<?php echo $_REQUEST["SpanName"] ?>').innerHTML=TaskTitle;
 	window.close();
 }
 
 function ClearLastSelected()
 {
-	window.opener.document.<?php echo $FormName ?>.<?php echo $_REQUEST["InputName"] ?>.value='0';
-	window.opener.document.getElementById('<?php echo $_REQUEST["SpanName"] ?>').innerHTML='';
+	parent.window.opener.document.<?php echo $FormName ?>.<?php echo $_REQUEST["InputName"] ?>.value='0';
+	parent.window.opener.document.getElementById('<?php echo $_REQUEST["SpanName"] ?>').innerHTML='';
 	window.close();
 }
 

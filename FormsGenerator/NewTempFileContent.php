@@ -88,7 +88,7 @@ if(isset($_REQUEST["Save"]))
 												, $FileContent
 												 );
 	}	
-	echo "<script>window.opener.document.location='ManageTempFileContent.php?ContentType=".$_REQUEST["ContentType"]."&UpdateID=".$_REQUEST["FileID"]."'; window.close(); </script>";
+	echo "<script>parent.window.opener.document.location='ManageTempFileContent.php?ContentType=".$_REQUEST["ContentType"]."&UpdateID=".$_REQUEST["FileID"]."'; window.close(); </script>";
 	echo "<p align=center><font color=green>اطلاعات ذخیره شد</font></p>";
 }
 $LoadDataJavascriptCode = '';

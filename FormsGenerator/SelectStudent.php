@@ -89,15 +89,15 @@
 <script>
 	function SelectPerson(PersonID, PersonName, ouid, sub_ouid, EduGrpCode, UnitName, SubUnitName, EduGrpName)
 	{
-		window.opener.document.f1.<?php echo $_REQUEST["InputName"] ?>.value=PersonID;
-		window.opener.document.getElementById('<?php echo $_REQUEST["SpanName"] ?>').innerHTML=PersonName;
+		parent.window.opener.document.f1.<?php echo $_REQUEST["InputName"] ?>.value=PersonID;
+		parent.window.opener.document.getElementById('<?php echo $_REQUEST["SpanName"] ?>').innerHTML=PersonName;
 		<?php if(isset($_REQUEST["UnitSpanName"])) { ?>
-		window.opener.document.f1.<?php echo $_REQUEST["UnitInputName"] ?>.value=ouid;
-		window.opener.document.f1.<?php echo $_REQUEST["SubUnitInputName"] ?>.value=sub_ouid;
-		window.opener.document.f1.<?php echo $_REQUEST["EduGrpInputName"] ?>.value=EduGrpCode;
-		window.opener.document.getElementById('<?php echo $_REQUEST["UnitSpanName"] ?>').innerHTML=UnitName;
-		window.opener.document.getElementById('<?php echo $_REQUEST["SubUnitSpanName"] ?>').innerHTML=SubUnitName;
-		window.opener.document.getElementById('<?php echo $_REQUEST["EduGrpSpanName"] ?>').innerHTML=EduGrpName;
+		parent.window.opener.document.f1.<?php echo $_REQUEST["UnitInputName"] ?>.value=ouid;
+		parent.window.opener.document.f1.<?php echo $_REQUEST["SubUnitInputName"] ?>.value=sub_ouid;
+		parent.window.opener.document.f1.<?php echo $_REQUEST["EduGrpInputName"] ?>.value=EduGrpCode;
+		parent.window.opener.document.getElementById('<?php echo $_REQUEST["UnitSpanName"] ?>').innerHTML=UnitName;
+		parent.window.opener.document.getElementById('<?php echo $_REQUEST["SubUnitSpanName"] ?>').innerHTML=SubUnitName;
+		parent.window.opener.document.getElementById('<?php echo $_REQUEST["EduGrpSpanName"] ?>').innerHTML=EduGrpName;
 		<?php } ?>
 		window.close();
 		

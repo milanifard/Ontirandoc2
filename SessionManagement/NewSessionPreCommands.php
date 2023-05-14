@@ -129,7 +129,7 @@ if($_REQUEST["Item_ActReg"]!=''){
 
 }
 
-		echo "<script>window.opener.document.location='ManageSessionPreCommands.php?UniversitySessionID=".$UniversitySessionID."'; window.close();</script>";
+		echo "<script>parent.window.opener.document.location='ManageSessionPreCommands.php?UniversitySessionID=".$UniversitySessionID."'; window.close();</script>";
 	}	
 	else 
 	{	
@@ -152,7 +152,7 @@ if($_REQUEST["Item_ActReg"]!=''){
 		, $Item_ActReg
 		);
 }
-		echo "<script>window.opener.document.location='ManageSessionPreCommands.php?UniversitySessionID=".$UniversitySessionID."'; window.close();</script>";
+		echo "<script>parent.window.opener.document.location='ManageSessionPreCommands.php?UniversitySessionID=".$UniversitySessionID."'; window.close();</script>";
 		die();
 	}	
 	echo SharedClass::CreateMessageBox("اطلاعات ذخیره شد");

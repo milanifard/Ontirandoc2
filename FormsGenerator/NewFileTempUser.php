@@ -177,8 +177,8 @@ if(isset($_REQUEST["Save"]))
 		$mysql->Execute($query);
 	}
 	if(!isset($_REQUEST["UpdateID"]))
-		echo "<script>window.opener.document.location='ManageFileTempUsers.php?UpdateID=".$_REQUEST["FileID"]."'; window.close(); </script>";
-	//echo "<script>window.opener.document.location='ManageFileTempUsers.php?UpdateID=".$_REQUEST["FileID"]."'; </script>";
+		echo "<script>parent.window.opener.document.location='ManageFileTempUsers.php?UpdateID=".$_REQUEST["FileID"]."'; window.close(); </script>";
+	//echo "<script>parent.window.opener.document.location='ManageFileTempUsers.php?UpdateID=".$_REQUEST["FileID"]."'; </script>";
 	echo "<p align=center><font color=green>اطلاعات ذخیره شد</font></p>";
 }
 $PersonName = "";

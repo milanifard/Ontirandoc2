@@ -165,9 +165,9 @@
             
 	function SelectPerson(PersonID, PersonName,PersonType)
 	{
-		window.opener.document.f1.<?php echo $_REQUEST["InputName"] ?>.value=PersonID;
-                window.opener.document.f1.<?php echo $_REQUEST["InputType"] ?>.value= PersonType;
-		window.opener.document.getElementById('<?php echo $_REQUEST["SpanName"] ?>').innerHTML=PersonName;                
+		parent.window.opener.document.f1.<?php echo $_REQUEST["InputName"] ?>.value=PersonID;
+                parent.window.opener.document.f1.<?php echo $_REQUEST["InputType"] ?>.value= PersonType;
+		parent.window.opener.document.getElementById('<?php echo $_REQUEST["SpanName"] ?>').innerHTML=PersonName;                
 		
 		window.close();
 		

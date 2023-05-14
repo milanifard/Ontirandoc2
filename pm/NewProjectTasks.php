@@ -210,14 +210,14 @@ if(isset($_REQUEST["Save"]))
 <a href='#' onclick="javascript: document.getElementById('NewRecordForm').submit();">اینجا</a>
 </b>
  را کلیک کنید. 
-<input type=button value='بستن پنجره' onclick='javascript: try { window.opener.document.location.reload(); } catch(err){} window.close();'>
+<input type=button value='بستن پنجره' onclick='javascript: try { parent.window.opener.document.location.reload(); } catch(err){} window.close();'>
 </td>
 </tr>
 </table>
 <?php 
 			die();
 		}
-		echo "<script>try { window.opener.document.location.reload(); } catch(err){} window.close();</script>";
+		echo "<script>try { parent.window.opener.document.location.reload(); } catch(err){} window.close();</script>";
 		die();
 	}	
 	else 
@@ -268,7 +268,7 @@ if(isset($_REQUEST["Save"]))
 <a href='#' onclick="javascript: document.getElementById('NewRecordForm').submit();">اینجا</a>
 </b>
  را کلیک کنید. 
-<input type=button value='بستن پنجره' onclick='javascript: try { window.opener.document.location.reload(); } catch(err){} window.close();'>
+<input type=button value='بستن پنجره' onclick='javascript: try { parent.window.opener.document.location.reload(); } catch(err){} window.close();'>
 </td>
 </tr>
 </table>
@@ -276,7 +276,7 @@ if(isset($_REQUEST["Save"]))
 			die();
 		}
 
-		echo "<script>try { window.opener.document.location.reload(); } catch(err){} window.close();</script>";
+		echo "<script>try { parent.window.opener.document.location.reload(); } catch(err){} window.close();</script>";
 		die();
 	}	
 	echo SharedClass::CreateMessageBox("اطلاعات ذخیره شد");
@@ -1452,7 +1452,7 @@ if(($pc->GetPermission("View_TaskRefers") == 'YES' /*|| $_SESSION["User"]->Perso
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200)
 			{
-				try { window.opener.location.href = window.opener.location.href; } catch(err) {};
+				try { parent.window.opener.location.href = parent.window.opener.location.href; } catch(err) {};
 				if (document.f2.RemoveFromCartable.checked)
 					window.close();
 				else
@@ -1507,7 +1507,7 @@ function SetVisited()
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200)
-			try {if (window.opener.location.href.indexOf("ReferredTasks") > -1) window.opener.location.href = window.opener.location.href; } catch(err) {}
+			try {if (parent.window.opener.location.href.indexOf("ReferredTasks") > -1) parent.window.opener.location.href = parent.window.opener.location.href; } catch(err) {}
 	};
 	xhttp.open("POST", "NewProjectTasks.php", true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

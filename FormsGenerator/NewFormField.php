@@ -93,7 +93,7 @@ if(isset($_REQUEST["Save"]))
 				);
 	}	
 	echo "<p align=center><font color=green>اطلاعات ذخیره شد</font></p>";
-	echo "<script>window.opener.document.location='ManageFormFields.php?FormsStructID=".$_REQUEST["Item_FormsStructID"]."'</script>";
+	echo "<script>parent.window.opener.document.location='ManageFormFields.php?FormsStructID=".$_REQUEST["Item_FormsStructID"]."'</script>";
 }
 $LoadDataJavascriptCode = '';
 $ListRelatedDescription = "";

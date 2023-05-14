@@ -87,7 +87,7 @@ if (isset($_REQUEST["Save"])) {
 				security_projects::SaveDetailTablePermission($LastID, 'ProjectTaskTypes', $SelectedPersonID, "NO", "NONE", "NONE", "PUBLIC");
 			}
 		}
-		echo "<script>window.opener.document.location.reload(); window.close();</script>";
+		echo "<script>parent.window.opener.document.location.reload(); window.close();</script>";
 	} else {
 		if ($HasUpdateAccess)
 			manage_ProjectMembers::Update(
@@ -96,7 +96,7 @@ if (isset($_REQUEST["Save"])) {
 				$Item_AccessType,
 				$Item_ParticipationPercent
 			);
-		echo "<script>window.opener.document.location.reload(); window.close();</script>";
+		echo "<script>parent.window.opener.document.location.reload(); window.close();</script>";
 		die();
 	}
 	echo SharedClass::CreateMessageBox(C_DATA_STORED);

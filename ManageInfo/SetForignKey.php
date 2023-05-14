@@ -19,7 +19,7 @@
 	  <script>
 	  function SelectDomainName(DomainName) 
 	  { 
-	    window.opener.document.getElementById('RelationCondition').value="DomainName='"+DomainName+"'";
+	    parent.window.opener.document.getElementById('RelationCondition').value="DomainName='"+DomainName+"'";
 	    window.close(); 
 	  } 
 	  </script>
@@ -43,7 +43,7 @@
 	  <script>
 	  function SelectStatusName(FormType) 
 	  { 
-	    window.opener.document.getElementById('RelationCondition').value="FormType='"+FormType+"'";
+	    parent.window.opener.document.getElementById('RelationCondition').value="FormType='"+FormType+"'";
 	    window.close(); 
 	  } 
 	  </script>
@@ -70,7 +70,7 @@
 	  <script>
 	  function SelectStatusName(TypeID) 
 	  { 
-	    window.opener.document.getElementById('RelationCondition').value="TypeID='"+TypeID+"'";
+	    parent.window.opener.document.getElementById('RelationCondition').value="TypeID='"+TypeID+"'";
 	    window.close(); 
 	  } 
 	  </script>
@@ -89,18 +89,18 @@
 		$RelationCondition = $_REQUEST["RelationCondition"];
 		
 		echo "<script>";
-		echo "window.opener.document.f1.".$FieldName."_RelatedDBName".$_REQUEST["FK"].".value='".$DBName."'; ";
-		echo "window.opener.document.f1.".$FieldName."_RelatedTable".$_REQUEST["FK"].".value='".$TableName."'; ";
-		echo "window.opener.document.f1.".$FieldName."_RelatedField".$_REQUEST["FK"].".value='".$SelectedFieldName."'; ";
-		echo "window.opener.document.f1.".$FieldName."_RelationCondition".$_REQUEST["FK"].".value=\"".$RelationCondition."\"; ";
+		echo "parent.window.opener.document.f1.".$FieldName."_RelatedDBName".$_REQUEST["FK"].".value='".$DBName."'; ";
+		echo "parent.window.opener.document.f1.".$FieldName."_RelatedTable".$_REQUEST["FK"].".value='".$TableName."'; ";
+		echo "parent.window.opener.document.f1.".$FieldName."_RelatedField".$_REQUEST["FK"].".value='".$SelectedFieldName."'; ";
+		echo "parent.window.opener.document.f1.".$FieldName."_RelationCondition".$_REQUEST["FK"].".value=\"".$RelationCondition."\"; ";
 		if($TableName=="")
-			echo "window.opener.document.getElementById('".$FieldName."_Span".$_REQUEST["FK"]."').innerHTML='___'; ";
+			echo "parent.window.opener.document.getElementById('".$FieldName."_Span".$_REQUEST["FK"]."').innerHTML='___'; ";
 		else
 		{
 		  $FKey = $DBName.".".$TableName.".".$SelectedFieldName;
 		  if($RelationCondition!="")
 		    $FKey .= " (".$RelationCondition.")";
-		  echo "window.opener.document.getElementById('".$FieldName."_Span".$_REQUEST["FK"]."').innerHTML=\"".$FKey."\"; ";
+		  echo "parent.window.opener.document.getElementById('".$FieldName."_Span".$_REQUEST["FK"]."').innerHTML=\"".$FKey."\"; ";
 		}
 		echo "window.close(); ";
 		echo "</script>";

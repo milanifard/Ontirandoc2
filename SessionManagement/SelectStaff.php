@@ -87,13 +87,13 @@
 <script>
 	function SelectPerson(PersonID, PersonName, FName, LName)
 	{
-		window.opener.document.<?php echo $FormName ?>.<?php echo $_REQUEST["InputName"] ?>.value=PersonID;
-		window.opener.document.getElementById('<?php echo $_REQUEST["SpanName"] ?>').innerHTML=PersonName;
+		parent.window.opener.document.<?php echo $FormName ?>.<?php echo $_REQUEST["InputName"] ?>.value=PersonID;
+		parent.window.opener.document.getElementById('<?php echo $_REQUEST["SpanName"] ?>').innerHTML=PersonName;
 		<?php if(isset($_REQUEST["FInput"])) { ?>
-		window.opener.document.getElementById('<?php echo $_REQUEST["FInput"] ?>').value=FName;
+		parent.window.opener.document.getElementById('<?php echo $_REQUEST["FInput"] ?>').value=FName;
 		<?php } ?>
 		<?php if(isset($_REQUEST["LInput"])) { ?>
-		window.opener.document.getElementById('<?php echo $_REQUEST["LInput"] ?>').value=LName;
+		parent.window.opener.document.getElementById('<?php echo $_REQUEST["LInput"] ?>').value=LName;
 		<?php } ?>
 		window.close();
 		

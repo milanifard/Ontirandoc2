@@ -151,7 +151,7 @@
 		{
 			if(http.readyState == 4 && http.status == 200)
 			{ 
-				window.opener.document.getElementById('span_<? echo $_REQUEST["MapID"] ?>').innerHTML= '<b>' + EntityLabel + '</b>';
+				parent.window.opener.document.getElementById('span_<? echo $_REQUEST["MapID"] ?>').innerHTML= '<b>' + EntityLabel + '</b>';
 				window.close();
 			}
 		}

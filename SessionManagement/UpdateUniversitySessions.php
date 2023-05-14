@@ -82,7 +82,7 @@ if(isset($_REQUEST["Save"]))
 			, $Item_SessionDescisionsFileName
 			, $pc
 			);
-	//echo "<script>window.opener.document.location.reload(); window.close();</script>";
+	//echo "<script>parent.window.opener.document.location.reload(); window.close();</script>";
 	//die();
 	echo SharedClass::CreateMessageBox("اطلاعات ذخیره شد");
 }

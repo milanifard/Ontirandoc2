@@ -109,7 +109,7 @@ function save() {
 success:function(response,options)
 			{
 		alert('جلسه با موفقیت امضا گردید.') ; 
-                    window.opener.location.reload();
+                    parent.window.opener.location.reload();
 
                     window.close();
 			}	 	 

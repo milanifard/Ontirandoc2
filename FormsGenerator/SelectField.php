@@ -64,8 +64,8 @@ $mysql = dbclass::getInstance();
 <script>
 	function SelectField(FieldName, comment)
 	{
-		window.opener.document.f1.Item_RelatedFieldName.value=FieldName;
-		window.opener.document.f1.Item_FieldTitle.value=comment;
+		parent.window.opener.document.f1.Item_RelatedFieldName.value=FieldName;
+		parent.window.opener.document.f1.Item_FieldTitle.value=comment;
 		window.close();
 	}
 </script>

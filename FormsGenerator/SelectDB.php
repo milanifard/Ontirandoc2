@@ -90,9 +90,9 @@ if(isset($_REQUEST["DBName"]))
 <script>
 	function SelectDB(DBName, TableName, TableComment)
 	{
-		window.opener.document.f1.Item_RelatedDB.value=DBName;
-		window.opener.document.f1.Item_RelatedTable.value=TableName;
-		window.opener.document.f1.Item_FormTitle.value=TableComment;
+		parent.window.opener.document.f1.Item_RelatedDB.value=DBName;
+		parent.window.opener.document.f1.Item_RelatedTable.value=TableName;
+		parent.window.opener.document.f1.Item_FormTitle.value=TableComment;
 		window.close();
 	}
 </script>

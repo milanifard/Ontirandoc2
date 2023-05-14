@@ -236,9 +236,9 @@ if(isset($_REQUEST["Save"]))
 		{
 		  echo "<script>\r\n";
 		  if($Item_PropertyType=="DATATYPE")
-		    echo "var obj = window.opener.document.getElementById('RelatedDataPropID');\r\n";
+		    echo "var obj = parent.window.opener.document.getElementById('RelatedDataPropID');\r\n";
 		  else 
-		    echo "var obj = window.opener.document.getElementById('RelatedObjPropID');\r\n";		      
+		    echo "var obj = parent.window.opener.document.getElementById('RelatedObjPropID');\r\n";		      
 		  
 		  echo "var option = document.createElement(\"option\");\r\n";
 		  echo "option.text = '".$Item_label." (".$Item_PropertyTitle.")';\r\n";

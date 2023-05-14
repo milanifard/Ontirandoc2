@@ -63,7 +63,7 @@ if(isset($_REQUEST["ActionType"]))
 				);
 			echo "<script>document.getElementById('MessageSpan').innerHTML='<font color=green>فرم جدید اضافه شد</font>';</script>";
 			echo "<script>setTimeout(\"document.getElementById('MessageSpan').innerHTML='';\", 1500);</script>";
-			echo "<script>window.opener.document.location='ManageFileContent.php?ContentType=FORM&UpdateID=".$_REQUEST["FileID"]."'; window.close(); </script>";
+			echo "<script>parent.window.opener.document.location='ManageFileContent.php?ContentType=FORM&UpdateID=".$_REQUEST["FileID"]."'; window.close(); </script>";
 		}
 		else
 		{

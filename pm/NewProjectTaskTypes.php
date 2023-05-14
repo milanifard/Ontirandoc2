@@ -23,14 +23,14 @@ if(isset($_REQUEST["Save"]))
         manage_ProjectTaskTypes::Add($Item_title
             , $Item_ProjectID
         );
-        echo "<script>window.opener.document.location.reload(); window.close();</script>";
+        echo "<script>parent.window.opener.document.location.reload(); window.close();</script>";
     }
     else
     {
         manage_ProjectTaskTypes::Update($_REQUEST["UpdateID"]
             , $Item_title
         );
-        echo "<script>window.opener.document.location.reload(); window.close();</script>";
+        echo "<script>parent.window.opener.document.location.reload(); window.close();</script>";
         die();
     }
     echo SharedClass::CreateMessageBox(C_INFORMATION_SAVED);

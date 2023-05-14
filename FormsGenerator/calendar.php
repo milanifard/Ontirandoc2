@@ -225,7 +225,7 @@
 			day = '0'+day;
 		if(month<10)
 			month = '0'+month;
-		window.opener.document.<?php echo $_REQUEST["FormName"] ?>.<?php echo $_REQUEST["InputName"] ?>.value=year+'/'+month+'/'+day;
+		parent.window.opener.document.<?php echo $_REQUEST["FormName"] ?>.<?php echo $_REQUEST["InputName"] ?>.value=year+'/'+month+'/'+day;
 		window.close();
 	}
 </script>

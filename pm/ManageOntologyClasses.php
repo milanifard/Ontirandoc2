@@ -349,7 +349,7 @@ if(isset($_REQUEST["Save"]))
 		if(isset($_REQUEST["FromTermOnto"]))
 		{
 		  echo "<script>\r\n";
-		  echo "var obj = window.opener.document.getElementById('RelatedClassID');\r\n";
+		  echo "var obj = parent.window.opener.document.getElementById('RelatedClassID');\r\n";
 		  echo "var option = document.createElement(\"option\");\r\n";
 		  echo "option.text = '".$_REQUEST["Item_ClassLabel"]." (".$Item_ClassTitle.")';\r\n";
 		  echo "option.value = '".$NewID."';\r\n";
