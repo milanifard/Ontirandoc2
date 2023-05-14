@@ -21,9 +21,10 @@ function Calculate($mysql, $TermRefrenceID)
     $docs[$i]["ParagraphNo"] = $rec["ParagraphNo"];
     $i++;
   }
-  $res = $mysql->Execute("select distinct TermID, TermTitle from projectmanagement.terms 
+  $mysql->Prepare("select distinct TermID, TermTitle from projectmanagement.terms 
   JOIN projectmanagement.TermReferenceMapping using (TermID) 
-  where TermReferenceID=1");
+  where TermReferenceID=?");
+  $res = $mysql->ExecuteStatement(array($TermRefrenceID));
   $i = 0;
   while($rec = $res->fetch())
   {
@@ -31,7 +32,8 @@ function Calculate($mysql, $TermRefrenceID)
     $terms[$i]["TermTitle"] = $rec["TermTitle"];
     $i++;
   }
-  $res = $mysql->Execute("select TermID, TermReferenceID, PageNum, ParagraphNo from projectmanagement.TermReferenceMapping where TermReferenceID=1");
+  $mysql->Prepare("select TermID, TermReferenceID, PageNum, ParagraphNo from projectmanagement.TermReferenceMapping where TermReferenceID=?");
+  $res = $mysql->ExecuteStatement(array());
   $i = 0;
   while($rec = $res->fetch())
   {
@@ -81,6 +83,7 @@ $mysql->Prepare("select * from projectmanagement.TermReferences");
 $res = $mysql->ExecuteStatement(array());
 while($rec = $res->fetch())
 {
+  echo "محاسبه برای واژگان مستخرج از : ".$rec["title"]."<br>";
   Calculate($mysql, $rec["TermReferenceID"]);
 }
 
