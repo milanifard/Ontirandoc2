@@ -1439,15 +1439,6 @@ if(isset($_REQUEST["UpdateID"]))
                 </div>
             </td>
             </tr>
-                <?php if(isset($_REQUEST["UpdateID"]) && $obj->FileName!="") { ?>
-                        <tr>
-                            <td colspan=2>
-                                <label>
-                                    <textarea cols="100" rows="10" dir="ltr"><?php echo $obj->FileContent ?></textarea>
-                                </label>
-                            </td>
-                        </tr>
-                    <? } ?>
             <tr>
                 <td class="text-center table-info">
                     <input type="submit" class="btn btn-success  " " value=<?php echo C_SAVE ?>>
