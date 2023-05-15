@@ -135,11 +135,9 @@ if($SomeItemsRemoved)
 
 
         <tr class="table table-bordered">
-
-
-
-            <td style="width: 30%" class="text-body">ردیف</td>
-            <td style="width: 0%" class="text-body">کلاس</td>
+            <td style="width: 1%" class="text-body">ردیف</td>
+            <td style="width: 10%" class="text-body">ردیف</td>
+            <td class="text-body">کلاس</td>
         </tr>
         <?
         for($k=0; $k<count($res); $k++)
