@@ -50,7 +50,7 @@ function ShowValidRelations($ClassID, $OntologyID, $label, $level)
   while($rec = $res->fetch())
   {
     echo C_Relation;
-    echo "<a target=_blank href='ManageOntologyClasses.php?UpdateID=".$rec["DomainClassID"]."&OntologyID=".$OntologyID."&OnlyEditForm=1'> ";
+    echo "<a  rel='opener' target=_blank href='ManageOntologyClasses.php?UpdateID=".$rec["DomainClassID"]."&OntologyID=".$OntologyID."&OnlyEditForm=1'> ";
     if($rec["DomainClassID"]==$ClassID)
     {
     	if($label!="")
@@ -62,7 +62,7 @@ function ShowValidRelations($ClassID, $OntologyID, $label, $level)
     	echo $rec["DomainClassLabel"];
     echo "</a> &nbsp;";
     echo " <b><a href=# onclick=\"window.open('ManageOntologyProperties.php?DoNotShowList=1&UpdateID=".$rec["OntologyPropertyID"]."&OntologyID=".$OntologyID."');\" >".$rec["PropertyLabel"]."</a></b> &nbsp;";    
-    echo " <a target=_blank href='ManageOntologyClasses.php?UpdateID=".$rec["RangeClassID"]."&OntologyID=".$OntologyID."&OnlyEditForm=1'>";
+    echo " <a  rel='opener' target=_blank href='ManageOntologyClasses.php?UpdateID=".$rec["RangeClassID"]."&OntologyID=".$OntologyID."&OnlyEditForm=1'>";
     if($rec["RangeClassID"]==$ClassID)
     {
     	if($label!="")
@@ -469,18 +469,18 @@ if(!isset($_REQUEST["UpdateID"]))
 <!---
 <tr>
   <td colspan=2>
-  <a href='CopyClass.php?OntologyClassID=<? echo $_REQUEST["UpdateID"]; ?>' target=_blank>Copy</a>
+  <a  rel='opener' href='CopyClass.php?OntologyClassID=<? echo $_REQUEST["UpdateID"]; ?>' target=_blank>Copy</a>
   </td>
 </tr>
 --->
 <tr>
   <td>
-  <a href='ShowGraph.php?OntologyClassID=<? echo $_REQUEST["UpdateID"]; ?>' target=_blank> <? echo C_Show_graph ?></a>
+  <a  rel='opener' href='ShowGraph.php?OntologyClassID=<? echo $_REQUEST["UpdateID"]; ?>' target=_blank> <? echo C_Show_graph ?></a>
   </td>
 </tr>
 <tr>
   <td>
-  <a href='ManageOntologyClassProperties.php?OntologyID=<? echo $_REQUEST["OntologyID"]; ?>&OntologyClassID=<? echo $_REQUEST["UpdateID"]; ?>' target=_blank>
+  <a  rel='opener' href='ManageOntologyClassProperties.php?OntologyID=<? echo $_REQUEST["OntologyID"]; ?>&OntologyClassID=<? echo $_REQUEST["UpdateID"]; ?>' target=_blank>
 <? echo C_FEATURES ?>
   </a>
   </td>
@@ -502,7 +502,7 @@ if(!isset($_REQUEST["UpdateID"]))
 </tr>
 <tr>
   <td class="text-nowrap">
-  <a href='ManageOntologyClassParents.php?OntologyClassID=<? echo $_REQUEST["UpdateID"] ?>&OntologyID=<? echo $_REQUEST["OntologyID"] ?>' target=_blank>
+  <a  rel='opener' href='ManageOntologyClassParents.php?OntologyClassID=<? echo $_REQUEST["UpdateID"] ?>&OntologyID=<? echo $_REQUEST["OntologyID"] ?>' target=_blank>
   <? echo C_Pclasses ?>
   </a>
   </td>
@@ -512,7 +512,7 @@ if(!isset($_REQUEST["UpdateID"]))
     //print_r($list);
     for($m=0; $m<count($list); $m++)
     {
-      echo "<b><a target=_blank href='ManageOntologyClasses.php?UpdateID=".$list[$m]["OntologyClassID"]."&OntologyID=".$_REQUEST["OntologyID"]."&OnlyEditForm=1'>";
+      echo "<b><a  rel='opener' target=_blank href='ManageOntologyClasses.php?UpdateID=".$list[$m]["OntologyClassID"]."&OntologyID=".$_REQUEST["OntologyID"]."&OnlyEditForm=1'>";
       echo $list[$m]["label"]." (".$list[$m]["ClassTitle"].")";
       echo "</a></b>";
       echo "<br>";
@@ -526,7 +526,7 @@ if(!isset($_REQUEST["UpdateID"]))
 </tr>
 <tr>
   <td class="text-nowrap">
-  <a href='ManageOntologyClassChilds.php?OntologyClassID=<? echo $_REQUEST["UpdateID"] ?>&OntologyID=<? echo $_REQUEST["OntologyID"] ?>' target=_blank>
+  <a rel='opener'  href='ManageOntologyClassChilds.php?OntologyClassID=<? echo $_REQUEST["UpdateID"] ?>&OntologyID=<? echo $_REQUEST["OntologyID"] ?>' target=_blank>
   <? echo C_Cclasses ?>
   </a>
   </td>
@@ -535,7 +535,7 @@ if(!isset($_REQUEST["UpdateID"]))
     $list = manage_OntologyClassHirarchy::GetList($_REQUEST["UpdateID"]);
     for($m=0; $m<count($list); $m++)
     {
-      echo "<b><a target=_blank href='ManageOntologyClasses.php?OnlyEditForm=1&UpdateID=".$list[$m]->OntologyClassParentID."&OntologyID=".$_REQUEST["OntologyID"]."'>";
+      echo "<b><a  rel='opener' target=_blank href='ManageOntologyClasses.php?OnlyEditForm=1&UpdateID=".$list[$m]->OntologyClassParentID."&OntologyID=".$_REQUEST["OntologyID"]."'>";
       echo $list[$m]->OntologyClassParentID_Desc;
       echo "</a></b>";
       echo "<br>";
@@ -561,7 +561,7 @@ if(!isset($_REQUEST["UpdateID"]))
   while($rec = $res->fetch())
   {
     echo "<tr><td>".$rec["OntologyTitle"]."</td>";
-    echo "<td><a target=_blank href='ManageOntologyClasses.php?OnlyEditForm=1&UpdateID=".$rec["EntityID"]."&OntologyID=".$rec["OntologyID"]."'>".$rec["ClassTitle"]."</a></td></tr>";
+    echo "<td><a  rel='opener' target=_blank href='ManageOntologyClasses.php?OnlyEditForm=1&UpdateID=".$rec["EntityID"]."&OntologyID=".$rec["OntologyID"]."'>".$rec["ClassTitle"]."</a></td></tr>";
   }
 ?>
   </tr>
@@ -684,7 +684,7 @@ for($k=0; $k<count($res); $k++)
     echo "<input type=\"checkbox\" name=\"ch_".$res[$k]->OntologyClassID."\">";
     echo "</div></td>";
     echo "<td>".($k+1)."</td>";
-    echo "	<td><a target=_blank href=\"ManageOntologyClasses.php?UpdateID=".$res[$k]->OntologyClassID."&OntologyID=".$_REQUEST["OntologyID"]."&OnlyEditForm=1\"><i class=\"fas fa-edit\"></i></a></td>";
+    echo "	<td><a  rel='opener' target=_blank href=\"ManageOntologyClasses.php?UpdateID=".$res[$k]->OntologyClassID."&OntologyID=".$_REQUEST["OntologyID"]."&OnlyEditForm=1\"><i class=\"fas fa-edit\"></i></a></td>";
     echo "	<td dir=ltr>".htmlentities($res[$k]->ClassTitle, ENT_QUOTES, 'UTF-8');
     echo "	</td>";
     echo "	<td>".$LabelsList." ";
@@ -696,10 +696,10 @@ for($k=0; $k<count($res); $k++)
     }
     
     echo "<br><input type=text class=\"form-control \" name='label_".$res[$k]->OntologyClassID."' id='label_".$res[$k]->OntologyClassID."' value='".$SuggestedLabel."'>";
-    echo "<a  target=\"_blank\" href='ManageOntologyClassLabels.php?OntologyClassID=".$res[$k]->OntologyClassID ."'>[".C_EDIT."]</a>";
+    echo "<a  rel='opener'  target=\"_blank\" href='ManageOntologyClassLabels.php?OntologyClassID=".$res[$k]->OntologyClassID ."'>[".C_EDIT."]</a>";
     echo " </td>";
     echo "<td>".str_replace(", ","<br>", $SubClassesList)." ";
-    echo "<a  target=\"_blank\" href='ManageOntologyClassHirarchy.php?OntologyClassID=".$res[$k]->OntologyClassID ."'>[".C_EDIT."]</a>";
+    echo "<a  rel='opener'  target=\"_blank\" href='ManageOntologyClassHirarchy.php?OntologyClassID=".$res[$k]->OntologyClassID ."'>[".C_EDIT."]</a>";
     echo "</td>";
     echo "<td>".str_replace(", ","<br>", $ParentClassList)."</td>";
 
@@ -723,7 +723,7 @@ for($k=0; $k<count($res); $k++)
             </div>
         </div>
     </div></form>
-<form target="_blank" method="post" action="NewOntologyClasses.php" id="NewRecordForm" name="NewRecordForm">
+<form  rel='opener' target="_blank" method="post" action="NewOntologyClasses.php" id="NewRecordForm" name="NewRecordForm">
 	<input type="hidden" id="OntologyID" name="OntologyID" value="<? echo htmlentities($_REQUEST["OntologyID"], ENT_QUOTES, 'UTF-8'); ?>">
 </form>
 <script>
