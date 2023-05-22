@@ -729,7 +729,7 @@ for($k=0; $k<count($res); $k++)
 <script>
 function ConfirmDelete()
 {
-	if(confirm(<? echo C_T_AREUSURE ?>))
+	if(confirm("<? echo C_T_AREUSURE ?>"))
 	{
 	  document.getElementById('ActionType').value='Remove';
 	  document.ListForm.submit();
