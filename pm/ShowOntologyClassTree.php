@@ -19,6 +19,9 @@ function ShowChilds($LevelNo, $ParentID)
   if($LevelNo>6)
     return;
   $indent = "";
+  for($i=0; $i<$LevelNo*5; $i++)  
+    $indent .= "&nbsp";
+
   $query = "select OntologyClasses.OntologyClassID, ClassTitle, 
     (select group_concat(label, ' ') from projectmanagement.OntologyClassLabels where OntologyClassLabels.OntologyClassID=OntologyClasses.OntologyClassID group by OntologyClassID) as ClassLabel
     from projectmanagement.OntologyClasses 
@@ -28,8 +31,6 @@ function ShowChilds($LevelNo, $ParentID)
   $res = $mysql->ExecuteStatement(array($ParentID));
   while($rec = $res->fetch())
   {
-    for($i=0; $i<$LevelNo*5; $i++)  
-      $indent .= "&nbsp";
     echo $indent;
 
     if(!isset($_REQUEST["OnlyView"]))
