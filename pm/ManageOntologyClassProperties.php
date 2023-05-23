@@ -212,7 +212,7 @@ $range = $domain = '';
 </form>
 <script>
 	function ConfirmDelete() {
-		if (confirm(<? echo C_ARE_U_SURE ?>)) document.ListForm.submit();
+		if (confirm('<? echo C_ARE_U_SURE ?>')) document.ListForm.submit();
 	}
 </script>
 
