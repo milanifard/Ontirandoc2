@@ -1,5 +1,9 @@
 <?php	
-include("header.inc.php");
+include "sys_config.class.php";
+include "definitions.php";
+include "DateUtils.inc";
+include "SharedClass.class.php";
+
 include_once("../sharedClasses/SharedClass.class.php");
 include_once("classes/ProjectTasks.class.php");
 include_once("classes/projects.class.php");
