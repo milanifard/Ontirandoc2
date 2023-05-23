@@ -20,12 +20,12 @@ function ShowChilds($LevelNo, $ParentID)
     return;
   $indent = "";
   for($i=0; $i<$LevelNo*5; $i++)  
-    $indent .= "&nbsp;";
+    $indent .= "&nbsp;&nbsp;";
   $query = "select OntologyClasses.OntologyClassID, ClassTitle, 
     (select group_concat(label, ' ') from projectmanagement.OntologyClassLabels where OntologyClassLabels.OntologyClassID=OntologyClasses.OntologyClassID group by OntologyClassID) as ClassLabel
     from projectmanagement.OntologyClasses 
     JOIN projectmanagement.OntologyClassHirarchy on (OntologyClassHirarchy.OntologyClassParentID=OntologyClasses.OntologyClassID)
-    where OntologyClassHirarchy.OntologyClassID=?";
+    where OntologyClassHirarchy.OntologyClassID=? order by ClassTitle";
   $mysql->Prepare($query);
   $res = $mysql->ExecuteStatement(array($ParentID));
   while($rec = $res->fetch())
@@ -55,7 +55,7 @@ $query = "select OntologyClasses.OntologyClassID, ClassTitle,
   (select group_concat(label, ' ') from projectmanagement.OntologyClassLabels where OntologyClassLabels.OntologyClassID=OntologyClasses.OntologyClassID group by OntologyClassID) as ClassLabel
   from projectmanagement.OntologyClasses 
   where OntologyID=? and 
-  OntologyClassID not in (select OntologyClassParentID from projectmanagement.OntologyClassHirarchy) ";
+  OntologyClassID not in (select OntologyClassParentID from projectmanagement.OntologyClassHirarchy) order by ClassTitle";
 $mysql->Prepare($query);
 $res = $mysql->ExecuteStatement(array($OntologyID));
 while($rec = $res->fetch())
