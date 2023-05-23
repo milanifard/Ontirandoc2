@@ -28,6 +28,10 @@ function ShowChilds($LevelNo, $ParentID)
   $res = $mysql->ExecuteStatement(array($ParentID));
   while($rec = $res->fetch())
   {
+    for($i=0; $i<$LevelNo*5; $i++)  
+      $indent .= "&nbsp";
+    echo $indent;
+
     if(!isset($_REQUEST["OnlyView"]))
     {
 	    echo "<a href='#' onclick=\"javascript: SelectItem('";
@@ -39,9 +43,6 @@ function ShowChilds($LevelNo, $ParentID)
 	    echo "<img src='images/chain.gif' border=0></a>".$rec["ClassLabel"]." ";
     }
     echo $rec["ClassTitle"];
-    for($i=0; $i<$LevelNo*5; $i++)  
-      $indent .= "&nbsp";
-    echo $indent;
     echo "<br>\r\n";
     ShowChilds($LevelNo, $rec["OntologyClassID"]);
   }
