@@ -42,7 +42,7 @@ function ShowChilds($LevelNo, $ParentID)
     echo $rec["ClassLabel"];
     for($i=0; $i<$LevelNo*5; $i++)  
       $indent .= "&nbsp;&nbsp;";
-    echo "<br>";
+    echo "<br>\r\n";
     ShowChilds($LevelNo, $rec["OntologyClassID"]);
   }
 }
