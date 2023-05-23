@@ -37,11 +37,11 @@ function ShowChilds($LevelNo, $ParentID)
 	    else 
 	      echo $rec["ClassTitle"];
 	    echo "')\">";
-	    echo "<img src='images/chain.gif' border=0></a>".$rec["ClassTitle"]." ";
+	    echo "<img src='images/chain.gif' border=0></a>".$rec["ClassLabel"]." ";
     }
-    echo $rec["ClassLabel"];
+    echo $rec["ClassTitle"];
     for($i=0; $i<$LevelNo*5; $i++)  
-      $indent .= "&nbsp;&nbsp;";
+      $indent .= "&nbsp";
     echo "<br>\r\n";
     ShowChilds($LevelNo, $rec["OntologyClassID"]);
   }
@@ -69,9 +69,9 @@ while($rec = $res->fetch())
 	  else 
 	    echo $rec["ClassTitle"];
 	  echo "')\">";
-	  echo "<img src='images/chain.gif' border=0></a>".$rec["ClassTitle"]." ";
+	  echo "<img src='images/chain.gif' border=0></a>".$rec["ClassLabel"]." ";
   }
-  echo $rec["ClassLabel"]."<br>";
+  echo $rec["ClassTitle"]."<br>";
   ShowChilds(1, $rec["OntologyClassID"]);
 }
 echo "</td></tr></table>";
