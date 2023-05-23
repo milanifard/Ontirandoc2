@@ -19,8 +19,6 @@ function ShowChilds($LevelNo, $ParentID)
   if($LevelNo>6)
     return;
   $indent = "";
-  for($i=0; $i<$LevelNo*5; $i++)  
-    $indent .= "&nbsp;&nbsp;";
   $query = "select OntologyClasses.OntologyClassID, ClassTitle, 
     (select group_concat(label, ' ') from projectmanagement.OntologyClassLabels where OntologyClassLabels.OntologyClassID=OntologyClasses.OntologyClassID group by OntologyClassID) as ClassLabel
     from projectmanagement.OntologyClasses 
@@ -41,7 +39,10 @@ function ShowChilds($LevelNo, $ParentID)
 	    echo "')\">";
 	    echo "<img src='images/chain.gif' border=0></a>".$rec["ClassTitle"]." ";
     }
-    echo $rec["ClassLabel"]."<br>";
+    echo $rec["ClassLabel"];
+    for($i=0; $i<$LevelNo*5; $i++)  
+      $indent .= "&nbsp;&nbsp;";
+    echo "<br>";
     ShowChilds($LevelNo, $rec["OntologyClassID"]);
   }
 }
