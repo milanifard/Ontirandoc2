@@ -41,6 +41,7 @@ function ShowChilds($LevelNo, $ParentID)
     echo $rec["ClassTitle"];
     for($i=0; $i<$LevelNo*5; $i++)  
       $indent .= "&nbsp";
+    echo $indent;
     echo "<br>\r\n";
     ShowChilds($LevelNo, $rec["OntologyClassID"]);
   }
