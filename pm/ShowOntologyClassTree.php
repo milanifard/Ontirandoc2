@@ -28,7 +28,6 @@ function ShowChilds($LevelNo, $ParentID)
   $res = $mysql->ExecuteStatement(array($ParentID));
   while($rec = $res->fetch())
   {
-    echo $indent;
     if(!isset($_REQUEST["OnlyView"]))
     {
 	    echo "<a href='#' onclick=\"javascript: SelectItem('";
