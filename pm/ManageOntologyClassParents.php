@@ -167,7 +167,7 @@ if($SomeItemsRemoved)
 <script>
     function ConfirmDelete()
     {
-        if(confirm(<?php echo C_ARE_YOU_SURE ?>)) document.ListForm.submit();
+        if(confirm("<?php echo C_ARE_YOU_SURE ?>")) document.ListForm.submit();
     }
 
     
