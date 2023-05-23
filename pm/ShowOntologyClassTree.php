@@ -47,7 +47,7 @@ function ShowChilds($LevelNo, $ParentID)
   }
 }
 if(!isset($_REQUEST["OnlyView"]))
-	echo "<table dir=ltr border=1 cellpadding=5 align=center><tr><td>";
+	echo "<table dir=rtl border=1 cellpadding=5 align=center><tr><td>";
 else
 	echo "<table dir=rtl border=1 cellpadding=5 align=center><tr><td>";
 $OntologyID = $_REQUEST["OntologyID"];
