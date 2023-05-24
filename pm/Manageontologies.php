@@ -1558,6 +1558,7 @@ if($SomeItemsRemoved)
 <form target="_blank" method="post" action="Newontologies.php" id="NewRecordForm" name="NewRecordForm">
 </form>
 <script>
+  <? echo $LoadDataJavascriptCode ?>
 function DoCheckAll(CheckValue)
 {
   <?php echo $CheckAllCode; ?>
